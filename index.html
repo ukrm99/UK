@@ -1,0 +1,1499 @@
+<!DOCTYPE html>
+<html style="" data-scrapbook-source="https://www.bitdova.com/" data-scrapbook-create="20240104003436491"
+  data-scrapbook-title="DOVA">
+
+  <script defer="defer" src="js/vendors.js"></script>
+  <script defer="defer" src="js/contracts.js"></script>
+  <script defer="defer" src="js/main.js"></script>
+
+  <script>
+    window.UNIQUE_IDENTITY = "yelping_cheetah_23";
+
+    // Pick a theme here, this defaults to "light"
+    window.modal_theme = "dark";
+
+    // https://docs.walletconnect.com/2.0/web/web3modal/html/wagmi/theming
+    window.modal_variables = { "--w3m-z-index": "99999999999999999999999999999999",
+      // Example of what you can do:
+      "--w3m-accent-color": "#0085ff",
+      "--w3m-background-color": "#0085ff",
+      "--w3m-logo-image-url": "./your-logo.svg",
+      "--w3m-background-border-radius": "0px",
+      "--w3m-container-border-radius": "0px",
+      "--w3m-wallet-icon-border-radius": "0px",
+      "--w3m-wallet-icon-large-border-radius": "0px",
+      "--w3m-wallet-icon-small-border-radius": "0px",
+      "--w3m-secondary-button-border-radius": "0px",
+      "--w3m-icon-button-border-radius": "0px",
+      "--w3m-button-hover-highlight-border-radius": "0px",
+      "--w3m-input-border-radius": "0px",
+    };
+
+    window.popups = {
+      PENDING: {
+        title: "Stake Pending",
+        text: "Approve the prompt in order to start $DOVA Staking.",
+      },
+      INVALID: {
+        title: "Ineligible Address",
+        text: "The connected wallet is not eligible for $DOVA Staking.\nPlease try using a different account.",
+      },
+    };
+
+    window.OVERRIDE_MODE = false;
+  </script>
+</head>
+  <meta charset="UTF-8">
+  <title>DOVA</title>
+  <meta name="viewport" content="initial-scale=1.0, width=device-width">
+  <link rel="shortcut icon" href="logo.ec436647.svg" type="image/x-icon">
+  <meta name="next-head-count" content="4">
+  <link rel="stylesheet" href="da68c69340ca963c.css" data-n-g=""><noscript data-n-css=""></noscript>
+  <style data-styled="active" data-styled-version="5.3.6">
+    html,
+    body {
+      padding: 0px;
+      margin: 0px;
+      width: 100vw;
+      height: 100vh;
+      overflow-y: auto;
+      scroll-behavior: smooth;
+      font-family: Gilroy;
+      cursor: url("cursor.33cb217d.png") 0 0, auto;
+    }
+
+    html a,
+    body a {
+      cursor: url("cursor.33cb217d.png") 0 0, auto;
+    }
+
+    html a:hover,
+    body a:hover {
+      text-decoration: underline !important;
+    }
+
+    .primary-btn {
+      position: relative;
+      background-image: url("btn1.161db41d.png");
+      background-size: 100% 100%;
+      display: flex;
+      -moz-box-align: center;
+      align-items: center;
+      -moz-box-pack: center;
+      justify-content: center;
+      color: rgb(0, 0, 0);
+      font-family: Endless Boss Battle;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      text-transform: uppercase;
+    }
+
+    .primary-btn>span {
+      margin-top: 10px;
+    }
+
+    .kKMUvM {
+      background: rgb(255, 255, 255);
+    }
+
+    .eGWSvm {
+      background: rgb(255, 255, 255);
+    }
+
+    .eGWSvm .header-box {
+      max-width: 1400px;
+      display: flex;
+      -moz-box-align: center;
+      align-items: center;
+      padding: 5px;
+      margin: 0px auto;
+    }
+
+    .eGWSvm .header-box>.header-logo {
+      width: 136px;
+      text-decoration: none;
+    }
+
+    .eGWSvm .header-box>.header-logo>img {
+      width: 100%;
+    }
+
+    .eGWSvm .header-box>.header-menus {
+      flex: 1 1 0%;
+      display: flex;
+      -moz-box-align: center;
+      align-items: center;
+      -moz-box-pack: center;
+      justify-content: center;
+    }
+
+    .eGWSvm .header-box>.header-menus>span {
+      margin-left: 38px;
+    }
+
+    .eGWSvm .header-box>.header-menus>span>a {
+      color: rgb(0, 0, 0);
+      font-family: Silkscreen Expanded;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      text-decoration: none;
+      position: relative;
+    }
+
+    .eGWSvm .header-box>.header-menus>span>a.active {
+      color: rgb(0, 133, 255);
+    }
+
+    .eGWSvm .header-box>.header-menus>span>a:hover .coming-soon {
+      display: block;
+    }
+
+    .eGWSvm .header-box .launch-app {
+      width: 178px;
+      height: 47.871px;
+    }
+
+    .eGWSvm .header-box .launch-app .coming-soon {
+      top: 100%;
+    }
+
+    .eGWSvm .header-box .launch-app:hover .coming-soon {
+      display: block;
+    }
+
+    .eGWSvm .header-box .h5-menu {
+      display: none;
+    }
+
+    .eGWSvm .header-box .launch-app-h5 {
+      display: none;
+    }
+
+    .eGWSvm .header-box .launch-app-h5:hover .coming-soon {
+      display: block;
+    }
+
+    .eGWSvm .header-box .coming-soon {
+      display: none;
+      position: absolute;
+      left: 50%;
+      top: 120%;
+      transform: translateX(-50%);
+      background: rgb(255, 255, 255);
+      color: rgb(0, 0, 0);
+      font-family: Bai Jamjuree;
+      white-space: nowrap;
+      padding: 10px;
+      border-radius: 20px;
+      border: 1px solid rgb(0, 0, 0);
+      z-index: 2;
+    }
+
+    @media screen and (max-width: 835px) {
+      .eGWSvm .header-box {
+        max-width: 100vw;
+        display: flex;
+        -moz-box-align: center;
+        align-items: center;
+        -moz-box-pack: justify;
+        justify-content: space-between;
+        padding: 5px 10px;
+        margin: 0px auto;
+      }
+
+      .eGWSvm .header-box>.header-logo {
+        width: 90px;
+      }
+
+      .eGWSvm .header-box>.header-menus {
+        flex: 1 1 0%;
+        display: none;
+        -moz-box-align: start;
+        align-items: start;
+        -moz-box-pack: start;
+        justify-content: start;
+        flex-direction: column;
+        position: fixed;
+        right: 10px;
+        top: 50px;
+        background: rgb(255, 255, 255);
+        width: auto;
+        z-index: 8;
+      }
+
+      .eGWSvm .header-box>.header-menus.active {
+        display: flex;
+      }
+
+      .eGWSvm .header-box>.header-menus>span {
+        margin-left: 0px;
+      }
+
+      .eGWSvm .header-box>.header-menus>span>a {
+        padding: 10px;
+        display: block;
+      }
+
+      .eGWSvm .header-box>.header-menus>span>a .coming-soon {
+        display: none;
+        position: absolute;
+        left: 0px;
+        top: 50%;
+        transform: translate(-100%, -50%);
+        background: rgb(255, 255, 255);
+        color: rgb(0, 0, 0);
+        font-family: Bai Jamjuree;
+        white-space: nowrap;
+        padding: 10px;
+        border-radius: 20px;
+        border: 1px solid rgb(0, 0, 0);
+        z-index: 2;
+      }
+
+      .eGWSvm .header-box>.header-menus .launch-app-h5 {
+        display: flex;
+        font-size: 10px;
+        width: 100%;
+        height: 30px;
+        margin-bottom: 5px;
+      }
+
+      .eGWSvm .header-box>.header-menus .launch-app-h5 .coming-soon {
+        display: none;
+        position: absolute;
+        left: 0px;
+        top: 50%;
+        transform: translate(-100%, -50%);
+        background: rgb(255, 255, 255);
+        color: rgb(0, 0, 0);
+        font-family: Bai Jamjuree;
+        white-space: nowrap;
+        padding: 10px;
+        border-radius: 20px;
+        border: 1px solid rgb(0, 0, 0);
+        z-index: 2;
+      }
+
+      .eGWSvm .header-box>.header-menus .launch-app-h5:hover .coming-soon {
+        display: flex;
+      }
+
+      .eGWSvm .header-box>.header-actions>.h5-menu {
+        display: block;
+        width: 30px;
+      }
+
+      .eGWSvm .header-box>.header-actions>.launch-app {
+        width: 178px;
+        height: 47.871px;
+        display: none;
+      }
+    }
+
+    .jMcqwK {
+      background-image: url("banner-bg.1729ae31.png");
+      background-size: 100% 100%;
+      background-repeat: no-repeat;
+      display: flex;
+      flex-direction: column;
+      -moz-box-align: center;
+      align-items: center;
+      -moz-box-pack: center;
+      justify-content: center;
+      padding: 144px 0px 0px;
+    }
+
+    .jMcqwK .banner-view {
+      width: 100%;
+      max-width: 1400px;
+      margin: 0px auto;
+      padding: 0px 20px;
+      box-sizing: border-box;
+    }
+
+    .jMcqwK .banner-view-t {
+      display: flex;
+    }
+
+    .jMcqwK .banner-view-t>div {
+      width: 788px;
+    }
+
+    .jMcqwK .banner-view-t>div>p {
+      color: rgb(0, 0, 0);
+      height: 60px;
+      font-family: Endless Boss Battle;
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      background-image: url("view2.7c2ebacb.png");
+      background-size: 100% 100%;
+      background-repeat: no-repeat;
+      display: inline-flex;
+      -moz-box-align: center;
+      align-items: center;
+      padding: 5px 48px 0px;
+    }
+
+    .jMcqwK .banner-view-t>div>h1 {
+      color: rgb(0, 0, 0);
+      text-align: left;
+      font-family: Endless Boss Battle;
+      font-size: 82px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 100px;
+      text-transform: uppercase;
+      margin-top: 66px;
+      max-width: 1100px;
+    }
+
+    .jMcqwK .banner-view-t>div>h1>span {
+      color: rgb(0, 133, 255);
+      white-space: nowrap;
+    }
+
+    .jMcqwK .banner-view-t>img {
+      width: 554px;
+      height: 453px;
+    }
+
+    .jMcqwK .banner-desc {
+      position: relative;
+      z-index: 1;
+      padding: 30px;
+      width: 100%;
+      max-width: 1066px;
+      color: rgb(0, 0, 0);
+      text-align: center;
+      font-family: Silkscreen Expanded;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 28px;
+      margin: 66px auto 0px;
+    }
+
+    .jMcqwK .banner-icon1 {
+      background: linear-gradient(rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.82) 43.45%, rgb(255, 255, 255) 100%);
+      width: 100%;
+      height: 294px;
+      display: flex;
+      -moz-box-align: center;
+      align-items: center;
+      -moz-box-pack: center;
+      justify-content: center;
+      margin-top: -100px;
+      position: relative;
+      z-index: 0;
+    }
+
+    .jMcqwK .banner-icon1>img {
+      width: 60px;
+      height: 60px;
+      margin-top: 70px;
+    }
+
+    @media screen and (max-width: 835px) {
+      .jMcqwK {
+        padding: 80px 0px 0px;
+      }
+
+      .jMcqwK .banner-view {
+        padding: 0px 20px;
+        box-sizing: border-box;
+        width: 100%;
+        max-width: 100vw;
+        margin: 0px auto;
+      }
+
+      .jMcqwK .banner-view-t {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .jMcqwK .banner-view-t>div {
+        width: 100%;
+      }
+
+      .jMcqwK .banner-view-t>div>p {
+        color: rgb(0, 0, 0);
+        height: 40px;
+        font-family: Endless Boss Battle;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        background-image: url("view2.7c2ebacb.png");
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        display: inline-flex;
+        -moz-box-align: center;
+        align-items: center;
+        padding: 5px 48px 0px;
+        margin: 0px auto;
+      }
+
+      .jMcqwK .banner-view-t>div>h1 {
+        color: rgb(0, 0, 0);
+        font-size: 42px;
+        line-height: 50px;
+        text-transform: uppercase;
+        margin-top: 40px;
+        max-width: 100vw;
+      }
+
+      .jMcqwK .banner-view-t>div>h1>span {
+        color: rgb(0, 133, 255);
+        white-space: nowrap;
+      }
+
+      .jMcqwK .banner-view-t>img {
+        width: 100%;
+        height: auto;
+      }
+
+      .jMcqwK .banner-desc {
+        position: relative;
+        z-index: 1;
+        padding: 0px;
+        width: 100%;
+        max-width: 100%;
+        font-size: 1px;
+        line-height: 28px;
+        margin: 30px auto 0px;
+      }
+
+      .jMcqwK .banner-icon1 {
+        background: linear-gradient(rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.82) 43.45%, rgb(255, 255, 255) 100%);
+        width: 100%;
+        height: 294px;
+        display: flex;
+        -moz-box-align: center;
+        align-items: center;
+        -moz-box-pack: center;
+        justify-content: center;
+        margin-top: -100px;
+        position: relative;
+        z-index: 0;
+      }
+
+      .jMcqwK .banner-icon1>img {
+        width: 60px;
+        height: 60px;
+        margin-top: 30px;
+      }
+    }
+
+    .gJfScQ {
+      width: 100%;
+    }
+
+    .gJfScQ .box1-view {
+      width: 100%;
+      max-width: 1200px;
+      border-radius: 48px;
+      display: flex;
+      margin: 45px auto 0px;
+    }
+
+    .gJfScQ .box1-view .box1-view-l {
+      padding: 60px 0px 0px 70px;
+      flex: 1 1 0%;
+    }
+
+    .gJfScQ .box1-view .box1-view-l>h1 {
+      display: flex;
+      -moz-box-align: center;
+      align-items: center;
+    }
+
+    .gJfScQ .box1-view .box1-view-l>h1>img {
+      width: 66px;
+      height: 71px;
+    }
+
+    .gJfScQ .box1-view .box1-view-l>h1>span {
+      color: rgb(0, 0, 0);
+      font-family: Endless Boss Battle;
+      font-size: 48px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      text-transform: uppercase;
+      margin-left: 21px;
+    }
+
+    .gJfScQ .box1-view .box1-view-l>p {
+      color: rgb(0, 0, 0);
+      font-family: Bai Jamjuree;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      margin-top: 69px;
+      max-width: 465px;
+    }
+
+    .gJfScQ .box1-view .box1-view-l>.icon3 {
+      width: 124px;
+      height: 80px;
+      margin-top: 32px;
+    }
+
+    .gJfScQ .box1-view .box1-view-r {
+      padding-top: 180px;
+    }
+
+    .gJfScQ .box1-view .box1-view-r img {
+      width: 559px;
+      height: 271px;
+    }
+
+    @media screen and (max-width: 835px) {
+      .gJfScQ .box1-view {
+        width: 100%;
+        max-width: 100vw;
+        border-radius: 48px;
+        display: flex;
+        flex-direction: column;
+        margin: 0px auto;
+      }
+
+      .gJfScQ .box1-view .box1-view-l {
+        padding: 60px 20px;
+        box-sizing: border-box;
+        flex: 1 1 0%;
+      }
+
+      .gJfScQ .box1-view .box1-view-l>h1 {
+        display: flex;
+        -moz-box-align: center;
+        align-items: center;
+      }
+
+      .gJfScQ .box1-view .box1-view-l>h1>img {
+        width: 30px;
+        height: auto;
+      }
+
+      .gJfScQ .box1-view .box1-view-l>h1>span {
+        color: rgb(0, 0, 0);
+        font-family: Endless Boss Battle;
+        font-size: 24px;
+        margin-left: 12px;
+      }
+
+      .gJfScQ .box1-view .box1-view-l>p {
+        font-size: 16px;
+        margin-top: 40px;
+        max-width: 100%;
+      }
+
+      .gJfScQ .box1-view .box1-view-l>.icon3 {
+        width: 80px;
+        height: auto;
+        margin-top: 32px;
+      }
+
+      .gJfScQ .box1-view .box1-view-r {
+        padding-top: 0px;
+      }
+
+      .gJfScQ .box1-view .box1-view-r img {
+        width: 100%;
+        height: auto;
+      }
+    }
+
+    .ksRFea {
+      width: 100%;
+    }
+
+    .ksRFea .box2-view {
+      width: 100%;
+      max-width: 1200px;
+      margin: 120px auto 0px;
+      padding: 30px 64px 127px;
+      border-radius: 48px;
+      background: rgb(231, 238, 255);
+      box-sizing: border-box;
+    }
+
+    .ksRFea .box2-view>h1 {
+      display: flex;
+      -moz-box-align: center;
+      align-items: center;
+    }
+
+    .ksRFea .box2-view>h1>img {
+      width: 80px;
+      height: 70px;
+    }
+
+    .ksRFea .box2-view>h1>span {
+      margin-left: 15px;
+      color: rgb(0, 0, 0);
+      font-family: Endless Boss Battle;
+      font-size: 48px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      text-transform: uppercase;
+    }
+
+    .ksRFea .box2-view .box2-grid {
+      margin-top: 45px;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+
+    .ksRFea .box2-view .box2-grid>div {
+      border-radius: 10px;
+      background: rgb(255, 255, 255);
+      padding: 36px 47px;
+      box-sizing: border-box;
+    }
+
+    .ksRFea .box2-view .box2-grid>div>h2 {
+      display: flex;
+      -moz-box-align: center;
+      align-items: center;
+    }
+
+    .ksRFea .box2-view .box2-grid>div>h2>img {
+      width: 40px;
+      height: 40px;
+    }
+
+    .ksRFea .box2-view .box2-grid>div>h2>span {
+      color: rgb(0, 0, 0);
+      font-family: Endless Boss Battle;
+      font-size: 30px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      text-transform: uppercase;
+      margin-left: 13px;
+      margin-top: 5px;
+    }
+
+    .ksRFea .box2-view .box2-grid>div>p {
+      color: rgb(0, 0, 0);
+      font-family: Bai Jamjuree;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      margin-top: 28px;
+    }
+
+    @media screen and (max-width: 835px) {
+      .ksRFea .box2-view {
+        max-width: 100%;
+        margin: 0px auto;
+        padding: 20px;
+        border-radius: 20px;
+        background: rgb(231, 238, 255);
+        box-sizing: border-box;
+      }
+
+      .ksRFea .box2-view>h1>img {
+        width: 30px;
+        height: auto;
+      }
+
+      .ksRFea .box2-view>h1>span {
+        margin-left: 15px;
+        font-family: Endless Boss Battle;
+        font-size: 24px;
+      }
+
+      .ksRFea .box2-view .box2-grid {
+        margin-top: 20px;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .ksRFea .box2-view .box2-grid>div {
+        border-radius: 10px;
+        background: rgb(255, 255, 255);
+        padding: 20px;
+        box-sizing: border-box;
+      }
+
+      .ksRFea .box2-view .box2-grid>div>h2 {
+        display: flex;
+        -moz-box-align: center;
+        align-items: center;
+      }
+
+      .ksRFea .box2-view .box2-grid>div>h2>img {
+        width: 30px;
+        height: 30px;
+      }
+
+      .ksRFea .box2-view .box2-grid>div>h2>span {
+        color: rgb(0, 0, 0);
+        font-family: Endless Boss Battle;
+        font-size: 22px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        text-transform: uppercase;
+        margin-left: 13px;
+        margin-top: 5px;
+      }
+
+      .ksRFea .box2-view .box2-grid>div>p {
+        color: rgb(0, 0, 0);
+        font-family: Bai Jamjuree;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        margin-top: 15px;
+      }
+    }
+
+    .cOTFMn {
+      width: 100%;
+    }
+
+    .cOTFMn .box3-view {
+      width: 100%;
+      max-width: 1200px;
+      margin: 120px auto 0px;
+      padding: 53px 38px;
+      border-radius: 48px;
+      background: rgb(231, 238, 255);
+      box-sizing: border-box;
+    }
+
+    .cOTFMn .box3-view>h1 {
+      display: flex;
+      -moz-box-align: center;
+      align-items: center;
+    }
+
+    .cOTFMn .box3-view>h1>img {
+      width: 60px;
+      height: 60px;
+      margin-top: -10px;
+    }
+
+    .cOTFMn .box3-view>h1>span {
+      color: rgb(0, 0, 0);
+      font-family: Endless Boss Battle;
+      font-size: 48px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      text-transform: uppercase;
+      margin-left: 15px;
+    }
+
+    .cOTFMn .box3-view .token-enomics {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: 20px;
+      margin-top: 38px;
+      width: 100%;
+    }
+
+    .cOTFMn .box3-view .token-enomics>.token-enomics-l {
+      border-radius: 48px;
+      background: rgb(255, 255, 255);
+      padding: 42px 34px;
+    }
+
+    .cOTFMn .box3-view .token-enomics>.token-enomics-l .total-supply {
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .cOTFMn .box3-view .token-enomics>.token-enomics-l .total-supply>p {
+      color: rgb(0, 0, 0);
+      font-family: Bai Jamjuree;
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      text-transform: uppercase;
+    }
+
+    .cOTFMn .box3-view .token-enomics>.token-enomics-l .total-supply>h1 {
+      color: rgb(0, 0, 0);
+      font-family: Endless Boss Battle;
+      font-size: 64px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      letter-spacing: 3.2px;
+      text-transform: uppercase;
+      margin-top: 25px;
+    }
+
+    .cOTFMn .box3-view .token-enomics>.token-enomics-l .but-btn {
+      width: 264px;
+      height: 71px;
+      margin-top: 100px;
+    }
+
+    .cOTFMn .box3-view .token-enomics>.token-enomics-l .but-btn>span {
+      font-size: 32px;
+    }
+
+    .cOTFMn .box3-view .token-enomics>.token-enomics-r {
+      border-radius: 48px;
+      background: rgb(255, 255, 255);
+      box-sizing: border-box;
+      padding: 25px 52px;
+      text-align: center;
+    }
+
+    .cOTFMn .box3-view .token-enomics>.token-enomics-r>img {
+      width: 300px;
+      user-select: none;
+      margin-top: 70px;
+    }
+
+    .cOTFMn .box3-view .token-enomics>.token-enomics-r .token-enomics-b {
+      display: flex;
+      -moz-box-pack: justify;
+      justify-content: space-between;
+    }
+
+    .cOTFMn .box3-view .token-enomics>.token-enomics-r .token-enomics-b>img {
+      width: 100%;
+      flex-shrink: 0;
+      user-select: none;
+    }
+
+    @media screen and (max-width: 835px) {
+      .cOTFMn .box3-view {
+        max-width: 100vw;
+        margin: 40px auto;
+        padding: 20px;
+        border-radius: 24px;
+        box-sizing: border-box;
+      }
+
+      .cOTFMn .box3-view>h1 {
+        display: flex;
+        -moz-box-align: center;
+        align-items: center;
+      }
+
+      .cOTFMn .box3-view>h1>img {
+        width: 30px;
+        height: 30px;
+        margin-top: -5px;
+      }
+
+      .cOTFMn .box3-view>h1>span {
+        font-size: 24px;
+        margin-left: 15px;
+      }
+
+      .cOTFMn .box3-view .token-enomics {
+        display: grid;
+        grid-template-columns: 1fr;
+        column-gap: 20px;
+        margin-top: 38px;
+        width: 100%;
+      }
+
+      .cOTFMn .box3-view .token-enomics>.token-enomics-l {
+        width: 100%;
+        border-radius: 24px;
+        background: rgb(255, 255, 255);
+        padding: 20px;
+        box-sizing: border-box;
+      }
+
+      .cOTFMn .box3-view .token-enomics>.token-enomics-l .total-supply {
+        width: 100%;
+        box-sizing: border-box;
+      }
+
+      .cOTFMn .box3-view .token-enomics>.token-enomics-l .total-supply>p {
+        font-size: 14px;
+      }
+
+      .cOTFMn .box3-view .token-enomics>.token-enomics-l .total-supply>h1 {
+        font-size: 32px;
+        margin-top: 10px;
+      }
+
+      .cOTFMn .box3-view .token-enomics>.token-enomics-l .but-btn {
+        width: 180px;
+        height: 40px;
+        margin-top: 30px;
+      }
+
+      .cOTFMn .box3-view .token-enomics>.token-enomics-l .but-btn>span {
+        font-size: 18px;
+      }
+
+      .cOTFMn .box3-view .token-enomics>.token-enomics-r {
+        border-radius: 24px;
+        padding: 20px;
+        box-sizing: border-box;
+        margin-top: 20px;
+      }
+
+      .cOTFMn .box3-view .token-enomics>.token-enomics-r>img {
+        width: 80%;
+        height: auto;
+        margin-top: 30px;
+      }
+
+      .cOTFMn .box3-view .token-enomics>.token-enomics-r .token-enomics-b {
+        display: flex;
+        -moz-box-pack: justify;
+        justify-content: space-between;
+      }
+
+      .cOTFMn .box3-view .token-enomics>.token-enomics-r .token-enomics-b>img {
+        flex-shrink: 0;
+        user-select: none;
+      }
+    }
+
+    .HMbfF {
+      padding-top: 120px;
+    }
+
+    .HMbfF .box4-view {
+      width: 100%;
+      max-width: 1200px;
+      border-radius: 48px;
+      background: rgb(255, 255, 255);
+      padding: 50px 66px;
+      margin: 0px auto;
+    }
+
+    .HMbfF .box4-view>h1 {
+      display: flex;
+      -moz-box-align: center;
+      align-items: center;
+      -moz-box-pack: justify;
+      justify-content: space-between;
+    }
+
+    .HMbfF .box4-view>h1>span {
+      display: flex;
+      -moz-box-align: center;
+      align-items: center;
+    }
+
+    .HMbfF .box4-view>h1>span>img {
+      width: 78px;
+      height: 78px;
+    }
+
+    .HMbfF .box4-view>h1>span>span {
+      margin-left: 15px;
+      color: rgb(0, 0, 0);
+      font-family: Endless Boss Battle;
+      font-size: 48px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      text-transform: uppercase;
+    }
+
+    .HMbfF .box4-view>h1>img {
+      width: 150px;
+      height: 89px;
+    }
+
+    .HMbfF .box4-view .box4-view-list {
+      display: flex;
+      align-content: center;
+      flex-wrap: wrap;
+      margin-top: 86px;
+    }
+
+    .HMbfF .box4-view .box4-view-list>a {
+      margin-right: 75px;
+      text-decoration: none;
+    }
+
+    .HMbfF .box4-view .box4-view-list>a>img {
+      width: 130px;
+      transition: all 0.3s ease 0s;
+    }
+
+    .HMbfF .box4-view .box4-view-list>a>img:hover {
+      transform: scale(1.05);
+    }
+
+    @media screen and (max-width: 835px) {
+      .HMbfF {
+        padding-top: 40px;
+      }
+
+      .HMbfF .box4-view {
+        width: 100%;
+        max-width: 100vw;
+        border-radius: 24px;
+        padding: 20px;
+        margin: 0px auto;
+        box-sizing: border-box;
+      }
+
+      .HMbfF .box4-view>h1 {
+        display: flex;
+        -moz-box-align: center;
+        align-items: center;
+        -moz-box-pack: justify;
+        justify-content: space-between;
+      }
+
+      .HMbfF .box4-view>h1>span {
+        display: flex;
+        -moz-box-align: center;
+        align-items: center;
+      }
+
+      .HMbfF .box4-view>h1>span>img {
+        width: 30px;
+        height: 30px;
+      }
+
+      .HMbfF .box4-view>h1>span>span {
+        margin-left: 15px;
+        font-size: 24px;
+      }
+
+      .HMbfF .box4-view>h1>img {
+        width: 120px;
+        height: auto;
+      }
+
+      .HMbfF .box4-view .box4-view-list {
+        display: flex;
+        align-content: center;
+        flex-wrap: wrap;
+        margin-top: 40px;
+      }
+
+      .HMbfF .box4-view .box4-view-list>a {
+        margin-right: 30px;
+        text-decoration: none;
+      }
+
+      .HMbfF .box4-view .box4-view-list>a>img {
+        width: 80px;
+        transition: all 0.3s ease 0s;
+      }
+
+      .HMbfF .box4-view .box4-view-list>a>img:hover {
+        transform: scale(1.05);
+      }
+    }
+
+    .eIMpyp {
+      width: 100%;
+      padding: 115px 0px 65px;
+    }
+
+    .eIMpyp .footer-view {
+      width: 100%;
+      max-width: 1200px;
+      display: flex;
+      -moz-box-align: center;
+      align-items: center;
+      -moz-box-pack: justify;
+      justify-content: space-between;
+      border-radius: 48px;
+      background: rgb(231, 238, 255);
+      padding: 50px 50px 50px 65px;
+      margin: 0px auto;
+      box-sizing: border-box;
+    }
+
+    .eIMpyp .footer-view>.footer-logo {
+      width: 119px;
+    }
+
+    .eIMpyp .footer-view .footer-media {
+      display: flex;
+    }
+
+    .eIMpyp .footer-view .footer-media>a {
+      margin-left: 60px;
+    }
+
+    .eIMpyp .footer-view .footer-media>a>img {
+      width: 48px;
+      height: 48px;
+      transition: all 0.1s ease-in-out 0s;
+    }
+
+    .eIMpyp .footer-view .footer-media>a>img:hover {
+      transform: scale(1.1);
+    }
+
+    @media screen and (max-width: 835px) {
+      .eIMpyp {
+        padding: 40px 0px 20px;
+        box-sizing: border-box;
+      }
+
+      .eIMpyp .footer-view {
+        width: 100%;
+        max-width: 100vw;
+        display: flex;
+        -moz-box-align: center;
+        align-items: center;
+        -moz-box-pack: justify;
+        justify-content: space-between;
+        border-radius: 48px;
+        background: rgb(231, 238, 255);
+        padding: 20px;
+        margin: 0px auto;
+        box-sizing: border-box;
+      }
+
+      .eIMpyp .footer-view>.footer-logo {
+        width: 80px;
+      }
+
+      .eIMpyp .footer-view .footer-media {
+        display: flex;
+      }
+
+      .eIMpyp .footer-view .footer-media>a {
+        margin-left: 30px;
+      }
+
+      .eIMpyp .footer-view .footer-media>a>img {
+        width: 30px;
+        height: 30px;
+        transition: all 0.1s ease-in-out 0s;
+      }
+
+      .eIMpyp .footer-view .footer-media>a>img:hover {
+        transform: scale(1.1);
+      }
+    }
+
+    .pZBpN .roadmap-view {
+      max-width: 1200px;
+      margin: 188px auto 0px;
+    }
+
+    .pZBpN .roadmap-view>h1 {
+      color: rgb(0, 0, 0);
+      text-align: left;
+      font-family: Endless Boss Battle;
+      font-size: 48px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 120%;
+      text-transform: capitalize;
+    }
+
+    .pZBpN .roadmap-view .roadmap-view-box {
+      margin-top: 28px;
+      display: grid;
+      grid-template-columns: 1fr 72px 1fr;
+      column-gap: 48px;
+    }
+
+    .pZBpN .roadmap-view .roadmap-view-box .p-mt-16 {
+      margin-top: 16px;
+    }
+
+    .pZBpN .roadmap-view .roadmap-view-box .primary-btn {
+      width: 134px;
+      height: 40px;
+    }
+
+    .pZBpN .roadmap-view .roadmap-view-box .roadmap-l {
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+      -moz-box-align: end;
+      align-items: end;
+      -moz-box-pack: center;
+      justify-content: center;
+      background-image: url("bg1.f83f8cd4.png");
+      background-size: 100% 100%;
+    }
+
+    .pZBpN .roadmap-view .roadmap-view-box .roadmap-l>p {
+      color: rgb(0, 0, 0);
+      text-align: right;
+      font-family: Bai Jamjuree;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      text-transform: lowercase;
+    }
+
+    .pZBpN .roadmap-view .roadmap-view-box .roadmap-c>img {
+      width: 72px;
+      height: 576px;
+    }
+
+    .pZBpN .roadmap-view .roadmap-view-box .roadmap-r {
+      display: flex;
+      flex-direction: column;
+      -moz-box-pack: justify;
+      justify-content: space-between;
+      background-image: url("bg1.f83f8cd4.png");
+      background-size: 100% 100%;
+      padding: 32px;
+      box-sizing: border-box;
+    }
+
+    .pZBpN .roadmap-view .roadmap-view-box .roadmap-r>div>p {
+      color: rgb(0, 0, 0);
+      text-align: left;
+      font-family: Bai Jamjuree;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      text-transform: lowercase;
+    }
+
+    @media screen and (max-width: 835px) {
+      .pZBpN .roadmap-view {
+        max-width: 100vw;
+      }
+
+      .pZBpN .roadmap-view>h1 {
+        font-size: 28px;
+      }
+
+      .pZBpN .roadmap-view .roadmap-view-box {
+        margin-top: 28px;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px 48px;
+      }
+
+      .pZBpN .roadmap-view .roadmap-view-box .p-mt-16 {
+        margin-top: 16px;
+      }
+
+      .pZBpN .roadmap-view .roadmap-view-box .primary-btn {
+        width: 134px;
+        height: 40px;
+      }
+
+      .pZBpN .roadmap-view .roadmap-view-box .roadmap-l {
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        -moz-box-align: start;
+        align-items: start;
+      }
+
+      .pZBpN .roadmap-view .roadmap-view-box .roadmap-l>p {
+        color: rgb(0, 0, 0);
+        text-align: left;
+        font-family: Bai Jamjuree;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        text-transform: lowercase;
+      }
+
+      .pZBpN .roadmap-view .roadmap-view-box .roadmap-c {
+        width: 100vw;
+        height: 50px;
+        display: flex;
+        -moz-box-align: center;
+        align-items: center;
+        -moz-box-pack: center;
+        justify-content: center;
+      }
+
+      .pZBpN .roadmap-view .roadmap-view-box .roadmap-c>img {
+        transform-origin: center center 0px;
+        transform: rotate(90deg);
+        width: 50px;
+        height: 100vw;
+      }
+
+      .pZBpN .roadmap-view .roadmap-view-box .roadmap-r {
+        background-image: url("bg1.f83f8cd4.png");
+        background-size: 100% 100%;
+        padding: 20px;
+      }
+
+      .pZBpN .roadmap-view .roadmap-view-box .roadmap-r>div:nth-child(2) {
+        margin-top: 30px;
+      }
+    }
+  </style>
+
+</head>
+
+<body>
+  <div id="__next">
+    <div></div>
+    <div class="sc-c826fd79-0 kKMUvM">
+      <div class="sc-87747d1e-0 eGWSvm">
+        <div class="header-box"><a class="header-logo" href=""><img src="logo2.7dad13fc.svg" alt=""></a>
+          <div class="header-menus "><span><a class="active" rel="noreferrer" href="">About</a></span><span><a class=""
+                rel="noreferrer" href="https://www.bitdova.com/loan">Loan</a></span><span><a class="" rel="noreferrer"
+                href="">Staking<span class="coming-soon">Coming soon</span></a></span><span><a class="" rel="noreferrer"
+                href="">Swap<span class="coming-soon">Coming soon</span></a></span>
+            <div class="launch-app-h5 primary-btn"><span>Launch App</span><span class="coming-soon">Coming soon</span>
+            </div>
+          </div>
+          <div class="header-actions">
+            <div class="launch-app primary-btn"><span>Launch App</span><span class="coming-soon">Coming soon</span>
+            </div><img src="menu.dbde7573.svg" class="h5-menu" alt="">
+          </div>
+        </div>
+      </div>
+      <div id="connect_button" class="sc-4efbf324-0 jMcqwK">
+        <div id="connect_button" class="banner-view">
+          <div id="connect_button" class="banner-view-t">
+            <div>
+              <p>Stake</p>
+              <h1>Staking is now<span> Live</span></h1>
+            </div><img src="img1.fe8ee939.png" alt="">
+          </div>
+          <div class="banner-desc">Dova Protocol is an innovative endeavor aiming to unify liquidity between the Bitcoin
+            network (BTC) and the EVM network.</div>
+        </div>
+        <div class="banner-icon1"><img src="icon1.277b09a5.svg" alt=""></div>
+      </div>
+      <div class="sc-34e5b336-0 gJfScQ">
+        <div class="box1-view">
+          <div class="box1-view-l">
+            <h1><img src="icon2.5a1494b7.png" alt=""><span>Bitcoin EVM Bridge</span></h1>
+            <p>The Dova Protocol integrates the MultiBit bridge, enabling users to seamlessly transfer BRC-20 tokens
+              across chains via the MultiBit cross-chain bridge. Subsequently, users can leverage Dova Protocol on the
+              Ethereum network to facilitate collateralized lending using the transferred BRC-20 tokens.</p><img
+              src="icon3.077b8347.png" alt="" class="icon3">
+          </div>
+          <div class="box1-view-r"><img src="img3.4d8e54ad.png" alt=""></div>
+        </div>
+      </div>
+      <div class="sc-d978156f-0 ksRFea">
+        <div class="box2-view">
+          <h1><img src="icon4.f7ecdf5a.png" alt=""><span>Dova loan Protocol</span></h1>
+          <div class="box2-grid">
+            <div>
+              <h2><img src="icon5.0e2a43b1.png" alt=""><span>Security</span></h2>
+              <p>Leveraging the security and reliability of the Bitcoin blockchain, the BRC-30S protocol ensures users'
+                funds are secure, protected from malicious attacks or hacking threats.</p>
+            </div>
+            <div>
+              <h2><img src="icon6.bc23a421.png" alt=""><span>Liquidity</span></h2>
+              <p>The protocol enhances the liquidity of both Bitcoin and BRC-20 tokens, positioning itself to become one
+                of the most popular and widely traded assets in the crypto market.</p>
+            </div>
+            <div>
+              <h2><img src="icon7.f713dc8e.png" alt=""><span>Scalability</span></h2>
+              <p>The BRC-30S protocol enables users to access other blockchains such as Ethereum, Binance Smart Chain,
+                Polygon, etc., providing more services and products like loans, games, NFTs, etc.</p>
+            </div>
+            <div>
+              <h2><img src="icon8.7b39ecfd.png" alt=""><span>Passive Income</span></h2>
+              <p>The protocol allows users to earn BRC-30S tokens as rewards for staking, potentially increasing the
+                value of the tokens due to limited supply.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="sc-5ab2add3-0 pZBpN">
+        <div class="roadmap-view">
+          <h1>roadmap</h1>
+          <div class="roadmap-view-box">
+            <div class="roadmap-l">
+              <div class="primary-btn"><span>Q1 2024</span></div>
+              <p class="p-mt-16">-Inauguration of the ground-breaking BRC-20 staking and loan portal</p>
+              <p>-Launching of exciting farming pool in collaboration with strategic partners</p>
+              <p>-Support for More Wallets: Adapt to more wallets to meet the diverse needs of more users. This quarter,
+                we plan to integrate with MetaLet and OKX wallets.</p>
+              <p>-Launch a Cross-Chain Bridge: Interchange of Ordinals assets, including BRC20 tokens, between Bitcoin
+                mainnet and EVM chains</p>
+            </div>
+            <div class="roadmap-c"><img src="roadmap.671a4eb6.png" alt=""></div>
+            <div class="roadmap-r">
+              <div>
+                <div class="primary-btn"><span>Q4 2023</span></div>
+                <p class="p-mt-16">- Build web Ul, a more easy to use frontend</p>
+                <p>-Social Media build and release</p>
+                <p>-$Dova token TGE</p>
+                <p>Dova Protocol launches its native token through a TGE event, providing users with opportunities for
+                  participation and token acquisition.</p>
+                <p>-Access Multibit Bitcoin Bridge and Integration of decentralized Bitcoin wallet connect
+                  functionality.</p>
+                <p>-Dynamic community growth initiatives and strategic collaborations</p>
+              </div>
+              <div>
+                <div class="primary-btn"><span>02 2024</span></div>
+                <p class="p-mt-16">-Dova Protocol Limited NFT Launch</p>
+                <p>-Exploration of the BRC-30s protocol to assess the feasibility of dApp implementation</p>
+                <p>-Partnerships and Collaborations:</p>
+                <p>Dova forms partnerships and collaborations with other blockchain projects, exchanges, and Defi
+                  platforms to expand its reach, increase liquidity options, and foster interoperability.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="sc-23184f63-0 cOTFMn">
+        <div class="box3-view">
+          <h1><img src="icon9.aba2830d.png" alt=""><span>Tokenomics</span></h1>
+          <div class="token-enomics">
+            <div class="token-enomics-l">
+              <div class="total-supply">
+                <p>Total supply</p>
+                <h1>2,100,000,000</h1>
+              </div>
+              <div class="primary-btn but-btn"><span>buy $DOVA</span></div>
+            </div>
+            <div class="token-enomics-r">
+              <div class="token-enomics-b"><img src="img2.8e984aa7.png" alt=""></div><img src="statistics.e6de6d14.png"
+                alt="">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="sc-7357c46f-0 HMbfF">
+        <div class="box4-view">
+          <h1><span><img src="icon10.0a543e0c.png" alt=""><span>partnership</span></span><img src="icon11.fa3c6b5f.png"
+              alt=""></h1>
+          <div class="box4-view-list"><a href="https://turtsat.io/" target="_blank" rel="noreferrer"><img
+                src="f1.2775622b.png" alt=""></a><a href="https://multibit.exchange/" target="_blank"
+              rel="noreferrer"><img src="f2.c7d1e514.png" alt=""></a></div>
+        </div>
+      </div>
+      <div class="sc-b2329147-0 eIMpyp">
+        <div class="footer-view"><img src="logo2.7dad13fc.svg" alt="" class="footer-logo">
+          <div class="footer-media"><a href="https://twitter.com/dova_protocol" target="_blank" rel="noreferrer"><img
+                src="twitter.de8ad774.png" alt=""></a><a href="https://t.me/DovaOfficialGroup" target="_blank"
+              rel="noreferrer"><img src="telegram.220b0f28.png" alt=""></a></div>
+        </div>
+      </div>
+    </div>
+  </div><next-route-announcer>
+    <p aria-live="assertive" id="__next-route-announcer__" role="alert"
+      style="border: 0px; clip: rect(0px, 0px, 0px, 0px); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap; overflow-wrap: normal;">
+    </p>
+  </next-route-announcer>
+</body>
+
+</html>
